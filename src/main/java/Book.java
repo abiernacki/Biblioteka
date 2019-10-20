@@ -5,7 +5,7 @@ import lombok.*;
 @Getter
 public class Book {
 
-    private Long id;
+    private Long idBook;
     private String title;
     private String author;
 }

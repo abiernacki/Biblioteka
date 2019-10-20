@@ -18,7 +18,7 @@ public class ClientTest {
         // then
         assertEquals("Jan", imie);
         assertEquals("Kowalski", nazwisko);
-        assertEquals(1L, Long.bitCount(idKlient));
+        assertEquals(1L, idKlient.longValue());
         assertEquals("123-456-789", numerTelefonu);
     }
 
