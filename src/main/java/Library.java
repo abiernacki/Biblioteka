@@ -35,23 +35,6 @@ public class Library {
     }
 
 
-    public void addRental(Rental rental) {
-        Optional<Rental> foundRental = listRental.stream()
-                .filter(a -> a.getBook().getIdBook().equals(rental.getBook().getIdBook()))
-                .filter(a -> (a.getDateFrom().getTime() <= rental.getDateFrom().getTime()
-                        && a.getDateTo().getTime() >= rental.getDateFrom().getTime())
-                        || (a.getDateFrom().getTime() <= rental.getDateTo().getTime()
-                        && a.getDateTo().getTime() >= rental.getDateTo().getTime())
-                        || (a.getDateFrom().getTime() >= rental.getDateFrom().getTime()
-                        && a.getDateTo().getTime() <= rental.getDateTo().getTime()))
-                .findAny();
-        if (!foundRental.isPresent()){
-            listRental.add(rental);
-        } else {
-            System.out.println("Rezerwacja nie możliwa!");
-        }
-    }
-
     public void removeBook(Book book) {
         Optional<Book> bookExist = listBook.stream()
                 .filter(a -> a.getIdBook().equals(book.getIdBook()))
@@ -71,6 +54,23 @@ public class Library {
             throw new IllegalArgumentException();
         } else {
             listClient.remove(clientExist.get());
+        }
+    }
+
+    public void addRental(Rental rental) {
+        Optional<Rental> foundRental = listRental.stream()
+                .filter(a -> a.getBook().getIdBook().equals(rental.getBook().getIdBook()))
+                .filter(a -> (a.getDateFrom().getTime() <= rental.getDateFrom().getTime()
+                        && a.getDateTo().getTime() >= rental.getDateFrom().getTime())
+                        || (a.getDateFrom().getTime() <= rental.getDateTo().getTime()
+                        && a.getDateTo().getTime() >= rental.getDateTo().getTime())
+                        || (a.getDateFrom().getTime() >= rental.getDateFrom().getTime()
+                        && a.getDateTo().getTime() <= rental.getDateTo().getTime()))
+                .findAny();
+        if (!foundRental.isPresent()){
+            listRental.add(rental);
+        } else {
+            System.out.println("Rezerwacja nie możliwa!");
         }
     }
 

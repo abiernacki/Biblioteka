@@ -12,7 +12,7 @@ public class LibraryTest {
     @Test
     public void testAddBook() {
         // given
-        Book book = new Book(1L, "Przykład 1", "Autor 1");
+        Book book = new Book(1L, "Przykład 1", "Autor 1",2019);
         Library library = new Library();
 
         // when
@@ -38,7 +38,7 @@ public class LibraryTest {
     @Test
     public void testRemoveBook() {
         // given
-        Book book = new Book(1L, "Przykład 1", "Autor 1");
+        Book book = new Book(1L, "Przykład 1", "Autor 1", 2019);
         Library library = new Library();
 
         // when
@@ -68,7 +68,7 @@ public class LibraryTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa",2019);
         Rental rental = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Library library = new Library();
 
@@ -84,7 +84,7 @@ public class LibraryTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa", 2019);
         Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-09-03"),simpleDateFormat.parse("1999-09-17"));
         Library library = new Library();
@@ -102,7 +102,7 @@ public class LibraryTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa", 2019);
         Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Library library = new Library();
@@ -120,7 +120,7 @@ public class LibraryTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa",2019);
         Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-01"),simpleDateFormat.parse("1999-10-15"));
         Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Library library = new Library();
@@ -138,7 +138,7 @@ public class LibraryTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa",2019);
         Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-04"),simpleDateFormat.parse("1999-10-19"));
         Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
         Library library = new Library();
