@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class Library {
 
-    private List<Book> listBooks = new ArrayList<>();
+    private List<Book> listBook = new ArrayList<>();
     private List<Client> listClient = new ArrayList<>();
     private List<Rental> listRental = new ArrayList<>();
 
@@ -16,6 +16,17 @@ public class Library {
             listClient.add(client);
         } else {
             System.out.println("Taki klient już istnieje!");
+        }
+    }
+
+    public void addBook(Book book){
+        Optional<Book> findBook = listBook.stream()
+                .filter(a -> a.getIdBook().equals(book.getIdBook()))
+                .findAny();
+        if (!findBook.isPresent()){
+            listBook.add(book);
+        } else {
+            System.out.println("Taka książka już istnieje!");
         }
     }
 }
