@@ -134,4 +134,22 @@ public class LibraryTest {
         //then
         assertEquals(1,library.getListRental().size());
     }
+
+    @Test
+    public void testAddRentalTheSameRental3() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-04"),simpleDateFormat.parse("1999-10-19"));
+        Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental1);
+        library.addRental(rental2);
+
+        //then
+        assertEquals(1,library.getListRental().size());
+    }
 }
