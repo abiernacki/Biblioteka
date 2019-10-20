@@ -30,9 +30,6 @@ public class RentalTest {
         assertEquals("Jan Brzechwa",rental.getBook().getAuthor());
         assertEquals("1999-10-03",simpleDateFormat.format(rental.getDateFrom()));
         assertEquals("1999-10-17",simpleDateFormat.format(rental.getDateTo()));
-
-
-
     }
 
 }

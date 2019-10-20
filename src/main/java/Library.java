@@ -98,5 +98,13 @@ public class Library {
             System.out.println("W bibliotece nie ma książki o podanym tytule.");
         }
     }
+
+    public void searchByPublishYear(Book book) {
+        List<Book> collect = listBook.stream()
+                .filter(a -> a.getPublishYear() == book.getPublishYear())
+                .collect(Collectors.toList());
+    }
+
+
 }
 
