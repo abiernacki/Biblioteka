@@ -21,5 +21,4 @@ public class ClientTest {
         assertEquals(1L, idKlient.longValue());
         assertEquals("123-456-789", numerTelefonu);
     }
-
 }
