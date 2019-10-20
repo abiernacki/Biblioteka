@@ -25,7 +25,7 @@ public class RentalTest {
         assertEquals("Biernacki",rental.getClient().getLastName());
         assertEquals(1L,rental.getClient().getIdClient().longValue());
         assertEquals("555555555",rental.getClient().getPhoneNumber());
-        assertEquals(1L,rental.getBook().getId().longValue());
+        assertEquals(1L,rental.getBook().getIdBook().longValue());
         assertEquals("Janko Muzykant",rental.getBook().getTitle());
         assertEquals("Jan Brzechwa",rental.getBook().getAuthor());
         assertEquals("1999-10-03",simpleDateFormat.format(rental.getDateFrom()));
