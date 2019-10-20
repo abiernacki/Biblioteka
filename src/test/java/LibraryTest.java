@@ -1,11 +1,15 @@
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class LibraryTest {
+
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
     @Test
     public void testAddBook() {
@@ -59,5 +63,93 @@ public class LibraryTest {
 
         // then
         assertEquals(0, library.getListClient().size());
+    }
+
+    @Test
+    public void testAddRental() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental);
+
+        //then
+        assertEquals(1,library.getListRental().size());
+    }
+
+    @Test
+    public void testAddRentalTheSameName() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-09-03"),simpleDateFormat.parse("1999-09-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental1);
+        library.addRental(rental2);
+
+        //then
+        assertEquals(2,library.getListRental().size());
+    }
+
+    @Test
+    public void testAddRentalTheSameRental() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental1);
+        library.addRental(rental2);
+
+        //then
+        assertEquals(1,library.getListRental().size());
+    }
+
+    @Test
+    public void testAddRentalTheSameRental2() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-01"),simpleDateFormat.parse("1999-10-15"));
+        Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental1);
+        library.addRental(rental2);
+
+        //then
+        assertEquals(1,library.getListRental().size());
+    }
+
+    @Test
+    public void testAddRentalTheSameRental3() throws ParseException {
+
+        //given
+        Client client = new Client("Adrian","Biernacki",1L,"555555555");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Rental rental1 = new Rental(book,client,simpleDateFormat.parse("1999-10-04"),simpleDateFormat.parse("1999-10-19"));
+        Rental rental2 = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
+        Library library = new Library();
+
+        //when
+        library.addRental(rental1);
+        library.addRental(rental2);
+
+        //then
+        assertEquals(1,library.getListRental().size());
     }
 }
