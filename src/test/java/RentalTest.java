@@ -15,7 +15,7 @@ public class RentalTest {
 
         //given
         Client client = new Client("Adrian","Biernacki",1L,"555555555");
-        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa");
+        Book book = new Book(1L,"Janko Muzykant","Jan Brzechwa",2019);
         Rental rental = new Rental(book,client,simpleDateFormat.parse("1999-10-03"),simpleDateFormat.parse("1999-10-17"));
 
         //when

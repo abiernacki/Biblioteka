@@ -10,11 +10,12 @@ public class Book {
     private int publishYear;
     private boolean isRent;
 
-    public Book(Long idBook, String title, String author, int publishYear){
+    public Book(Long idBook, String title, String author, int publishYear) {
         this.idBook = idBook;
         this.title = title;
         this.author = author;
         this.publishYear = publishYear;
+        this.isRent = false;
     }
 
     public void setRent(boolean rent) {
