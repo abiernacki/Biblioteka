@@ -80,8 +80,9 @@ public class Library {
                 .collect(Collectors.toList());
         if (collect.size() > 0) {
             System.out.println("W bibliotece jest książka o podanym tytule.");
+        } else {
+            System.out.println("W bibliotece nie ma książki o podanym tytule.");
         }
     }
-
 }
 
