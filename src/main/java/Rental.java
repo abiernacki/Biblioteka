@@ -9,6 +9,7 @@ public class Rental {
 
     private Book book;
     private Client client;
-    private Date dateTo;
     private Date dateFrom;
+    private Date dateTo;
+
 }
