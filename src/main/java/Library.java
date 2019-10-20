@@ -3,6 +3,7 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Getter
 public class Library {
@@ -70,6 +71,15 @@ public class Library {
             throw new IllegalArgumentException();
         } else {
             listClient.remove(clientExist.get());
+        }
+    }
+
+    public void searchByTitle(Book book) {
+        List<Book> collect = listBook.stream()
+                .filter(a -> a.getTitle().equals(book.getTitle()))
+                .collect(Collectors.toList());
+        if (collect.size() > 0) {
+            System.out.println("W bibliotece jest książka o podanym tytule.");
         }
     }
 
