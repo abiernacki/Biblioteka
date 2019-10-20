@@ -9,4 +9,9 @@ public class Book {
     private String title;
     private String author;
 
+    private boolean isRent;
+
+    public void setRent(boolean rent) {
+        isRent = rent;
+    }
 }
