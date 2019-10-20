@@ -66,11 +66,25 @@ public class Library {
                         && a.getDateTo().getTime() >= rental.getDateTo().getTime())
                         || (a.getDateFrom().getTime() >= rental.getDateFrom().getTime()
                         && a.getDateTo().getTime() <= rental.getDateTo().getTime()))
+                .filter(a -> a.getBook().isRent() == false)
                 .findAny();
         if (!foundRental.isPresent()){
             listRental.add(rental);
+            rental.getBook().setRent(true);
         } else {
             System.out.println("Rezerwacja nie możliwa!");
+        }
+    }
+
+    public void removeRental(Rental rental){
+        Optional<Rental> rentals =  listRental.stream()
+                .filter(a -> a.getBook().getIdBook().equals(rental.getBook().getIdBook()))
+                .findAny();
+        if (rentals.isPresent()) {
+            rental.getBook().setRent(false);
+            listRental.remove(rental);
+        } else {
+            System.out.println("Nie ma takiego wypożyczenia");
         }
     }
 

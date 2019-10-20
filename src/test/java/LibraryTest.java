@@ -150,18 +150,4 @@ public class LibraryTest {
         //then
         assertEquals(1,library.getListRental().size());
     }
-
-    @Test
-    public void testSearchByTitle(){
-        // given
-        Book book = new Book(1L, "Przykład 1", "Autor 1", 2019);
-        Library library = new Library();
-
-        // when
-        library.addBook(book);
-        library.searchByTitle(book);
-
-        // then
-        assertNotNull(book);
-    }
 }
